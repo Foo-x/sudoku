@@ -1,18 +1,9 @@
 package main
 
 import (
-	"fmt"
-	"os"
-	"path/filepath"
-
-	"github.com/Foo-x/sudoku/internal/pkg/io"
+	"github.com/Foo-x/sudoku/internal/app/solver"
 )
 
-const input = "../../assets/input.txt"
-
 func main() {
-	currentPath, _ := os.Getwd()
-	lines, _ := io.ReadFile(filepath.Join(currentPath, input))
-
-	fmt.Println(lines)
+	solver.Solve()
 }
