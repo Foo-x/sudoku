@@ -6,5 +6,5 @@ import (
 )
 
 func main() {
-	fmt.Println(structure.Peers["C2"])
+	fmt.Println(solver.Peers["C2"])
 }
