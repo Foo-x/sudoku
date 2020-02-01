@@ -2,9 +2,17 @@ package main
 
 import (
 	"fmt"
-	"github.com/Foo-x/sudoku/internal/app/solver"
+	"os"
+	"path/filepath"
+
+	"github.com/Foo-x/sudoku/internal/pkg/io"
 )
 
+const input = "../../assets/input.txt"
+
 func main() {
-	fmt.Println(solver.Peers["C2"])
+	currentPath, _ := os.Getwd()
+	lines, _ := io.ReadFile(filepath.Join(currentPath, input))
+
+	fmt.Println(lines)
 }
