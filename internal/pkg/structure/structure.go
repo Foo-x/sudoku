@@ -2,6 +2,8 @@ package structure
 
 import (
 	s "strings"
+
+	"github.com/Foo-x/sudoku/pkg/collection"
 )
 
 const raws = "ABCDEFGHI"
@@ -17,11 +19,11 @@ func init() {
 	Squares = cross(s.Split(raws, ""), s.Split(columns, ""))
 
 	for _, r := range raws {
-		unit := filter(func(v string) bool { return s.HasPrefix(v, string([]rune{r})) }, Squares)
+		unit := collection.FilterS(func(v string) bool { return s.HasPrefix(v, string([]rune{r})) }, Squares)
 		Units = append(Units, unit)
 	}
 	for _, c := range columns {
-		unit := filter(func(v string) bool { return s.HasSuffix(v, string([]rune{c})) }, Squares)
+		unit := collection.FilterS(func(v string) bool { return s.HasSuffix(v, string([]rune{c})) }, Squares)
 		Units = append(Units, unit)
 	}
 	for i := 0; i < len(raws); i += blockSize {
@@ -62,14 +64,4 @@ func cross(sliceA, sliceB []string) []string {
 		}
 	}
 	return crossed
-}
-
-func filter(f func(v string) bool, s []string) []string {
-	var filtered []string
-	for _, x := range s {
-		if f(x) {
-			filtered = append(filtered, x)
-		}
-	}
-	return filtered
 }
