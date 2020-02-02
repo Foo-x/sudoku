@@ -6,8 +6,8 @@ import (
 	"github.com/Foo-x/sudoku/pkg/collection"
 )
 
-const raws = "ABCDEFGHI"
-const columns = "123456789"
+const Raws = "ABCDEFGHI"
+const Columns = "123456789"
 const blockSize = 3
 
 var Squares []string
@@ -16,19 +16,19 @@ var UnitMap map[string][][]string
 var Peers map[string]map[string]struct{}
 
 func init() {
-	Squares = cross(s.Split(raws, ""), s.Split(columns, ""))
+	Squares = cross(s.Split(Raws, ""), s.Split(Columns, ""))
 
-	for _, r := range raws {
+	for _, r := range Raws {
 		unit := collection.FilterS(func(v string) bool { return s.HasPrefix(v, string([]rune{r})) }, Squares)
 		Units = append(Units, unit)
 	}
-	for _, c := range columns {
+	for _, c := range Columns {
 		unit := collection.FilterS(func(v string) bool { return s.HasSuffix(v, string([]rune{c})) }, Squares)
 		Units = append(Units, unit)
 	}
-	for i := 0; i < len(raws); i += blockSize {
-		for j := 0; j < len(columns); j += blockSize {
-			Units = append(Units, cross(s.Split(raws, "")[i:i+blockSize], s.Split(columns, "")[j:j+blockSize]))
+	for i := 0; i < len(Raws); i += blockSize {
+		for j := 0; j < len(Columns); j += blockSize {
+			Units = append(Units, cross(s.Split(Raws, "")[i:i+blockSize], s.Split(Columns, "")[j:j+blockSize]))
 		}
 	}
 

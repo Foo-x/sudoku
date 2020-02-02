@@ -2,17 +2,15 @@ package solver
 
 import (
 	"fmt"
-	"path/filepath"
-	"runtime"
 
-	"github.com/Foo-x/sudoku/internal/pkg/io"
+	"github.com/Foo-x/sudoku/internal/pkg/parser"
 )
 
 const input = "../../../assets/input.txt"
 
 func Solve() {
-	_, entry, _, _ := runtime.Caller(1)
-	lines, _ := io.ReadFile(filepath.Join(entry, input))
+	grid := "003020600900305001001806400008102900700000008006708200002609500800203009005010300"
+	values, _ := parser.Parse(grid)
 
-	fmt.Println(lines)
+	fmt.Println(values)
 }
