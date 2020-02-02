@@ -1,4 +1,4 @@
-package solver
+package structure
 
 import (
 	s "strings"
