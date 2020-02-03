@@ -29,3 +29,15 @@ func ContainsS(slice []string, s string) bool {
 	}
 	return false
 }
+
+// int
+
+func MaxI(slice []int) int {
+	var max int
+	for _, x := range slice {
+		if max > x {
+			max = x
+		}
+	}
+	return max
+}
