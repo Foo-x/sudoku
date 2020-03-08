@@ -1,6 +1,6 @@
 # sudoku
 
-以下リンクの数独ソルバーをGoで実装しました。
+以下リンクの数独ソルバーをGoで実装しました。  
 http://www.aoky.net/articles/peter_norvig/sudoku.htm
 
 
